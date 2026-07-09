@@ -571,7 +571,8 @@ function renderGrid() {
   const grid = document.getElementById('grid');
   const q = currentFilter.q.toLowerCase();
   const filtered = allBrands.filter(b => {
-    if (currentFilter.cat !== 'all' && b.category !== currentFilter.cat) return false;
+    if (currentFilter.cat === '__altto__' && b.special !== 'altto') return false;
+    if (currentFilter.cat !== 'all' && currentFilter.cat !== '__altto__' && b.category !== currentFilter.cat) return false;
     if (currentFilter.city !== 'all' && (b.city||'').trim() !== currentFilter.city) return false;
     if (currentFilter.price !== 'all' && (b.price_band||'').trim() !== currentFilter.price) return false;
     if (q) {
