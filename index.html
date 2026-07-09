@@ -418,8 +418,28 @@
     <select class="select-pill" id="filter-city"><option value="all">全部城市</option></select>
     <select class="select-pill" id="filter-price"><option value="all">全部客单价</option></select>
   </div>
-  <div class="filter-row" id="filter-cats"></div>
-  <div style="text-align:center;font-size:11.5px;color:var(--text-mute);margin-top:6px;letter-spacing:.02em;">📅 数据更新时间：2026-06-08</div>
+  <div id="filter-cats-wrap" style="overflow:hidden;transition:max-height .35s ease,opacity .35s ease;max-height:200px;opacity:1;">
+    <div class="filter-row" id="filter-cats"></div>
+  </div>
+  <div style="text-align:center;margin-top:4px;">
+    <button id="filter-toggle" onclick="(function(){
+      var wrap=document.getElementById('filter-cats-wrap');
+      var btn=document.getElementById('filter-toggle');
+      var collapsed=wrap.dataset.collapsed==='1';
+      if(collapsed){
+        wrap.style.maxHeight='200px';
+        wrap.style.opacity='1';
+        wrap.dataset.collapsed='0';
+        btn.textContent='▲ 收起类目筛选';
+      } else {
+        wrap.style.maxHeight='0';
+        wrap.style.opacity='0';
+        wrap.dataset.collapsed='1';
+        btn.textContent='▼ 展开类目筛选';
+      }
+    })()" style="background:none;border:none;font-size:11.5px;color:var(--text-mute);cursor:pointer;letter-spacing:.02em;padding:2px 8px;border-radius:4px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mute)'">▲ 收起类目筛选</button>
+    <span style="font-size:11.5px;color:var(--text-mute);margin-left:12px;letter-spacing:.02em;">📅 数据更新时间：2026-07-09</span>
+  </div>
 </div>
 
 <div id="grid-wrap">
